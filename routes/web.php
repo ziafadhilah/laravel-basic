@@ -14,5 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $name = 'Halucoft';
+    return view('index',['name' => $name]);
+});
+
+Route::get('/about', function () {
+    $name = 'Halucoft';
+    return view('about',['name' => $name]);
+});
+
+Route::get('/menu', function () {
+    $name = 'Halucoft';
+    return view('menu-halucoft/index',['name' => $name]);
 });
