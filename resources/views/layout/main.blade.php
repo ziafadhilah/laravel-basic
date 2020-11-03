@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>@yield('title') : {{$name}}</title>
+    <title>@yield('title') : Halucoft</title>
 </head>
 
 <body>
@@ -21,9 +21,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link active" href="/">Home</a>
-                    <a class="nav-item nav-link" href="/about">Tentang Kami</a>
-                    <a class="nav-item nav-link" href="/menu">Daftar Menu</a>
+                    <a class="nav-item nav-link" href="{{url('/')}}">Home</a>
+                    <a class="nav-item nav-link" href="{{url('/about')}}">Tentang Kami</a>
+                    <a class="nav-item nav-link" href="{{url('/menu')}}">Daftar Menu</a>
                 </div>
             </div>
         </div>

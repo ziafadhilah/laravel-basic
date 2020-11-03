@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-10">
-            <h1 class="mt-3">About {{$name}}</h1>
+            <h1 class="mt-3">About</h1>
         </div>
     </div>
 </div>
