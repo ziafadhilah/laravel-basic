@@ -30,7 +30,17 @@ use App\Http\Controllers\MenuController;
 //     return view('menu-halucoft/index',['name' => $name]);
 // });
 
+//statis
 Route::get('/', [PagesController::class, 'home']);
 Route::get('/about', [PagesController::class, 'about']);
+
+//menu
 Route::get('/menu', [MenuController::class,'index']);
-Route::get('/menu/{id}', [MenuController::class,'show']);
+Route::get('/menu/create', [MenuController::class,'create']);
+Route::post('/menu', [MenuController::class,'store']);
+Route::get('/menu/{id}', [MenuController::class,'edit']);
+Route::delete('/menu/{id}',[MenuController::class,'destroy']);
+Route::patch('menu/{id}',[MenuController::class,'update']);
+
+// shortcut mewakili route menu
+// Route::resource('menu', MenuController::class);

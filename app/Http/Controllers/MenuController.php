@@ -25,7 +25,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        //
+        return view('menu-halucoft/create');
     }
 
     /**
@@ -36,7 +36,18 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Menu::create([
+        //     'nama' => $request->nama,
+        //     'harga' => $request->harga,
+        //     'gambar' => $request->gambar,
+        // ]);
+        $request->validate([
+            'nama' => 'required|max:255',
+            'harga' => 'required|numeric',
+        ]);
+        
+        Menu::create($request->all());
+        return redirect('/menu')->with('status', 'Berhasil di tambahkan');
     }
 
     /**
@@ -47,7 +58,7 @@ class MenuController extends Controller
      */
     public function show(Menu $id)
     {
-        return view('menu-halucoft/view',['menu' => $id]);
+        // 
     }
 
     /**
@@ -56,9 +67,9 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Menu $id)
     {
-        //
+        return view('menu-halucoft/edit', ['menu' => $id]);
     }
 
     /**
@@ -68,9 +79,21 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Menu $id)
     {
-        //
+        $request->validate([
+            'nama' => 'required|max:255',
+            'harga' => 'required|numeric',
+        ]);
+        
+        Menu::where('id', $id->id)
+            ->update([
+                'nama' => $request->nama,
+                'harga' => $request->harga,
+                'detail' => $request->detail,
+                'gambar' => $request->gambar,
+            ]);
+        return redirect('/menu')->with('status', 'Berhasil di ubah');
     }
 
     /**
@@ -79,8 +102,9 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Menu $id)
     {
-        //
+        Menu::destroy($id->id);
+        return redirect('/menu')->with('status', 'Berhasil di hapus');
     }
 }

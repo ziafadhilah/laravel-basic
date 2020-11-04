@@ -18,6 +18,7 @@ class CreateMenuTable extends Migration
             $table->string('nama');
             $table->char('harga',25);
             $table->string('gambar')->nullable();
+            $table->string('detail')->nullable();
             $table->timestamps();
         });
     }
